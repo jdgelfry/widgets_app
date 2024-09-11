@@ -16,8 +16,8 @@ class MenuItem {
 
 const appMenuItems = <MenuItem>[
   MenuItem(
-    title: 'Home',
-    subtitle: 'Welcome to the app',
+    title: 'Buttons',
+    subtitle: 'Various types of buttons',
     link: '/buttons',
     icon: Icons.smart_button_outlined,
   ),
