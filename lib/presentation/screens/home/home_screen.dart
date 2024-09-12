@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
-import 'package:widgets_app/config/router/app_router.dart';
+import 'package:widgets_app/presentation/screens/cards/cads_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String name = 'home_screen'; //name is used in app_router.dart
+
   const HomeScreen({super.key});
 
   @override
@@ -56,6 +58,7 @@ class _CustomListTile extends StatelessWidget {
         //     builder: (context) => const ButtonsScreen(),
         //   ),
         // );
+        // context.pushNamed(CardsScreen.name); //use for static routes
         context.push(item.link);
       },
     );
