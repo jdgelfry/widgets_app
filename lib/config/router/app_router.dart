@@ -2,8 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:widgets_app/presentation/screens/screens.dart';
 
 final appRouter = GoRouter(
-  initialLocation:
-      '/', //for use with routes the test is done with the initialLocation
+  // initialLocation:
+  //     '/', //for use with routes the test is done with the initialLocation
   routes: [
     GoRoute(
       path: '/',
@@ -17,7 +17,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/cards',
-      name: ButtonsScreen.name,
+      name: CardsScreen.name,
       builder: (context, state) => const CardsScreen(),
     ),
   ],
