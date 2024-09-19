@@ -27,6 +27,9 @@ enum Transportation { car, bike, boat, plane }
 class _UiControlsViewState extends State<_UiControlsView> {
   bool isDeveloper = false;
   Transportation selectedTransportation = Transportation.car;
+  bool wantsBreakfast = false;
+  bool wantsLunch = false;
+  bool wantsDinner = false;
 
   @override
   Widget build(BuildContext context) {
@@ -38,41 +41,63 @@ class _UiControlsViewState extends State<_UiControlsView> {
             subtitle: const Text('additional controls'),
             value: isDeveloper,
             onChanged: (value) => setState(() => isDeveloper = !isDeveloper)),
-        RadioListTile(
-          title: const Text('Car'),
-          subtitle: const Text('travel by car'),
-          value: Transportation.car,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.car;
-          }),
+        ExpansionTile(
+          title: const Text('Transportation'),
+          subtitle: Text('$selectedTransportation'),
+          children: [
+            RadioListTile(
+              title: const Text('Car'),
+              subtitle: const Text('travel by car'),
+              value: Transportation.car,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.car;
+              }),
+            ),
+            RadioListTile(
+              title: const Text('Bike'),
+              subtitle: const Text('travel by bike'),
+              value: Transportation.bike,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.bike;
+              }),
+            ),
+            RadioListTile(
+              title: const Text('Boat'),
+              subtitle: const Text('travel by boat'),
+              value: Transportation.boat,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.boat;
+              }),
+            ),
+            RadioListTile(
+              title: const Text('Plane'),
+              subtitle: const Text('travel by plane'),
+              value: Transportation.plane,
+              groupValue: selectedTransportation,
+              onChanged: (value) => setState(() {
+                selectedTransportation = Transportation.plane;
+              }),
+            ),
+          ],
         ),
-        RadioListTile(
-          title: const Text('Bike'),
-          subtitle: const Text('travel by bike'),
-          value: Transportation.bike,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.bike;
-          }),
+        CheckboxListTile(
+          title: const Text('Breakfast?'),
+          value: wantsBreakfast,
+          onChanged: (context) =>
+              setState(() => wantsBreakfast = !wantsBreakfast),
         ),
-        RadioListTile(
-          title: const Text('Boat'),
-          subtitle: const Text('travel by boat'),
-          value: Transportation.boat,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.boat;
-          }),
+        CheckboxListTile(
+          title: const Text('Lunch?'),
+          value: wantsLunch,
+          onChanged: (context) => setState(() => wantsLunch = !wantsLunch),
         ),
-        RadioListTile(
-          title: const Text('Plane'),
-          subtitle: const Text('travel by plane'),
-          value: Transportation.plane,
-          groupValue: selectedTransportation,
-          onChanged: (value) => setState(() {
-            selectedTransportation = Transportation.plane;
-          }),
+        CheckboxListTile(
+          title: const Text('Dinner?'),
+          value: wantsDinner,
+          onChanged: (context) => setState(() => wantsDinner = !wantsDinner),
         ),
       ],
     );
